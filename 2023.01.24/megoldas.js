@@ -5,14 +5,13 @@ document.write(`<hr>1. feladat:<br><br>`);
 function keszito() {
     return document.write(`A készítő neve: Frics Máté<br><br> Csoportjának típusa: Junior Frontend fejlesztő + Webfejlesztő<br><br> Csoport azonosítója: #Team11<br><br>`);
 }
-document.write(`${keszito()}`);
+keszito();
 
 //2. feladat
 document.write(`<hr>2. feladat:<br><br>`);
 
 function hatvanyozo(hatvanySzam, hatvanyKitevo) {
-    let hatvanyErtek = hatvanySzam ** hatvanyKitevo;
-    return hatvanyErtek;
+    return hatvanySzam ** hatvanyKitevo;
 }
 document.write(`A hatvanyértéked ${hatvanyozo(2, 3)}<br>`);
 document.write(`A hatvanyértéked ${hatvanyozo(5, 3)}<br>`);
@@ -25,52 +24,50 @@ function parosLetrehoz(intervallumEleje, intervallumVege) {
     if (randomSzam % 2 == 0) {
         return randomSzam;
     }
-    else if (randomSzam % 2 !== 0 && randomSzam != intervallumVege) {
-        return randomSzam - 1;
+    else if (randomSzam != intervallumVege) {
+        return randomSzam + 1;
     }
     else {
-        return randomSzam + 1;
+        return randomSzam - 1;
     }
 }
 document.write(`Az intervallum közötti generált ranom szám: ${parosLetrehoz(1, 100)}`);
-/*
+
 //4. feladat
 document.write(`<hr>4. feladat:<br><br>`);
 
 function testTomegIndex(suly, magassag) {
-    let ttt = suly/(magassag*magassag);
-
+    let ttt = suly / (magassag * magassag);
     if (ttt < 16) {
-        return sulyosSovanysag;
+        return "sulyosSovanysag";
     }
     else if (ttt < 17) {
-        eredmeny = mersejeltSovanysag;
-        return eredmeny;
+        return "mersekeltSovanysag";
     }
     else if (ttt < 18.5) {
-        return enyheSovanysag;
+        return "enyheSovanysag";
     }
     else if (ttt < 25) {
-        return normalisTestsuly;
+        return "normalisTestsuly";
     }
     else if (ttt < 30) {
-        return tulsulyos;
+        return "tulsulyos";
     }
     else if (ttt < 35) {
-        return IfokuElhizas;
+        return "IfokuElhizas";
     }
     else if (ttt < 40) {
-        return IIfokuElhizas;
+        return "IIfokuElhizas";
     }
     else {
-        return IIIfokuElhizas;
+        return "IIIfokuElhizas";
     }
 }
 
 document.write(`A magasságod és a súlyod alapján a csoportosításod ${testTomegIndex(200, 2)}<br>`);
 document.write(`A magasságod és a súlyod alapján a csoportosításod ${testTomegIndex(45, 1.5)}<br>`);
 document.write(`A magasságod és a súlyod alapján a csoportosításod ${testTomegIndex(25, 1.2)}<br>`);
-*/
+
 //5. feladat
 document.write(`<hr>5. feladat:<br><br>`);
 function egeszOszto(osztando, oszto) {

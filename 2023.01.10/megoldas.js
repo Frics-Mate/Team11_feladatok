@@ -30,7 +30,7 @@ else if (intervallumEleje < intervallumVege) {
     document.write(`Nem a megfelelő értéket adtad meg!<hr>`)
 }
 document.write(`A(z) ${intervallumEleje}, ${intervallumVege} intervallum közötti páros szám: <br><br>`);
-let randomSzam = Math.round(Math.random() * (intervallumVege - intervallumEleje) + Number(intervallumEleje));
+let randomSzam = Math.round(Math.random() * (intervallumVege - intervallumEleje) + intervallumEleje);
 if (intervallumEleje > intervallumVege) {
     document.write(`A kezdete NEM lehet kisebb mint a vége! <hr>`);
 }

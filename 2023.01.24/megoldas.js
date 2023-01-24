@@ -71,7 +71,7 @@ document.write(`A magasságod és a súlyod alapján a csoportosításod ${testT
 document.write(`<hr>5. feladat:<br><br>`);
 function egeszOszto(osztando, oszto) {
     if (osztando % oszto == 0) {
-        return "true";
+        return true;
     }
     else {
         return false;

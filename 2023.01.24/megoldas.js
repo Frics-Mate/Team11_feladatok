@@ -37,26 +37,25 @@ document.write(`Az intervallum közötti generált ranom szám: ${parosLetrehoz(
 document.write(`<hr>4. feladat:<br><br>`);
 
 function testTomegIndex(suly, magassag) {
-    let ttt = suly / (magassag * magassag);
-    if (ttt < 16) {
+    if (suly / (magassag * magassag) < 16) {
         return "sulyosSovanysag";
     }
-    else if (ttt < 17) {
+    else if (suly / (magassag * magassag) < 17) {
         return "mersekeltSovanysag";
     }
-    else if (ttt < 18.5) {
+    else if (suly / (magassag * magassag) < 18.5) {
         return "enyheSovanysag";
     }
-    else if (ttt < 25) {
+    else if (suly / (magassag * magassag) < 25) {
         return "normalisTestsuly";
     }
-    else if (ttt < 30) {
+    else if (suly / (magassag * magassag) < 30) {
         return "tulsulyos";
     }
-    else if (ttt < 35) {
+    else if (suly / (magassag * magassag) < 35) {
         return "IfokuElhizas";
     }
-    else if (ttt < 40) {
+    else if (suly / (magassag * magassag) < 40) {
         return "IIfokuElhizas";
     }
     else {
@@ -71,14 +70,11 @@ document.write(`A magasságod és a súlyod alapján a csoportosításod ${testT
 //5. feladat
 document.write(`<hr>5. feladat:<br><br>`);
 function egeszOszto(osztando, oszto) {
-    let ertek;
     if (osztando % oszto == 0) {
-        let ertek = true;
-        return ertek;
+        return "true";
     }
     else {
-        let ertek = false;
-        return ertek;
+        return false;
     }
 }
 document.write(`Maradék nélkül osztható? : ${egeszOszto(25, 5)}<br>`);

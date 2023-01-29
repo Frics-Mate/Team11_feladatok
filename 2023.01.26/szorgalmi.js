@@ -1,6 +1,14 @@
 // Függvények kiíratása:
 tombA = Tomb(10, 30, 10);
 tombB = Tomb(15, 55, 10);
+unio = AesBunio(tombA, tombB);
+metszet = AesBmetszet(tombA, tombB);
+aKulb = AkulB(tombA, tombB);
+bKula = AkulB(tombB, tombA);
+aParos = ParosSzamok(tombA);
+bParos = ParosSzamok(tombB);
+aPrim = PrimSzamKivalasztas(tombA);
+bPrim = PrimSzamKivalasztas(tombB);
 Kiiratas();
 
 // Kiíratás
@@ -11,25 +19,49 @@ function Kiiratas() {
         document.write(`${tombA[i]}, `);
     }
     document.write(`<hr>A "B" tömb elemei: `);
-    for (let j = 0; j < tombB.length; j++) {
-        document.write(`${tombB[j]}, `);
+    for (let i = 0; i < tombB.length; i++) {
+        document.write(`${tombB[i]}, `);
     }
-    document.write(`<hr>Az "A" tömb elemeinek összege: ${Osszeg(tombA)}, <hr>`);
-    document.write(`Az "A" tömb elemeinek átlaga(i): ${Atlag(tombA, Osszeg(tombA))}, <hr>`);
-    document.write(`A "B" tömb elemeinek összege: ${Osszeg(tombB)}, <hr>`);
-    document.write(`A "B" tömb elemeinek átlaga(i): ${Atlag(tombB, Osszeg(tombB))}, <hr>`);
-    document.write(`Az "A" és "B" tömb UNIÓ eleme(i): ${AesBunio(tombA, tombB)}<hr>`);
-    document.write(`Az "A" és "B" tömb METSZET eleme(i): ${AesBmetszet(tombA, tombB)}<hr>`);
-    document.write(`Az "A" és "B" tömb KÜLÖNBSÉG eleme(i): ${AkulB(tombA, tombB)}<hr>`);
-    document.write(`A "B" és "A" tömb KÜLÖNBSÉG eleme(i): ${AkulB(tombB, tombA)}<hr>`);
-    document.write(`Az "A" tömb PÁROS eleme(i): ${ParosSzamok(tombA)}<hr>`);
-    document.write(`A "B" tömb PÁROS eleme(i): ${ParosSzamok(tombB)}<hr>`);
-    document.write(`Az "A" tömb PRÍMSZÁM értéke(i): ${PrimSzamKivalasztas(tombA)}<hr>`);
-    document.write(`A "B" tömb PRÍMSZÁM értéke(i): ${PrimSzamKivalasztas(tombB)}<hr>`);
-    document.write(`Az "A" tömb MAXIMUM értéke: ${MaxErtek(tombA)}<hr>`);
-    document.write(`A "B" tömb MAXIMUM értéke: ${MaxErtek(tombB)}<hr>`);
-    document.write(`Az "A" tömb MINIMUM értéke: ${MinErtek(tombA)}<hr>`);
-    document.write(`A "B" tömb MINIMUM értéke: ${MinErtek(tombB)}<hr>`);
+    document.write(`<hr>Az "A" tömb elemeinek összege: ${Osszeg(tombA)}`);
+    document.write(`<hr>Az "A" tömb elemeinek átlaga(i): ${Atlag(tombA, Osszeg(tombA))}`);
+    document.write(`<hr>A "B" tömb elemeinek összege: ${Osszeg(tombB)}`);
+    document.write(`<hr>A "B" tömb elemeinek átlaga(i): ${Atlag(tombB, Osszeg(tombB))}`);
+    document.write(`<hr>Az "A" és "B" tömb UNIÓ eleme(i): `);
+    for (let i = 0; i < unio.length; i++) {
+        document.write(`${unio[i]}, `);
+    }
+    document.write(`<hr>Az "A" és "B" tömb METSZET eleme(i): `);
+    for (let i = 0; i < metszet.length; i++) {
+        document.write(`${metszet[i]}, `);
+    }
+    document.write(`<hr>Az "A" és "B" tömb KÜLÖNBSÉG eleme(i): `);
+    for (let i = 0; i < aKulb.length; i++) {
+        document.write(`${aKulb[i]}, `);
+    }
+    document.write(`<hr>A "B" és "A" tömb KÜLÖNBSÉG eleme(i): `);
+    for (let i = 0; i < bKula.length; i++) {
+        document.write(`${bKula[i]}, `);
+    }
+    document.write(`<hr>Az "A" tömb PÁROS eleme(i): `);
+    for (let i = 0; i < aParos.length; i++) {
+        document.write(`${aParos[i]}, `);
+    }
+    document.write(`<hr>A "B" tömb PÁROS eleme(i): `);
+    for (let i = 0; i < bParos.length; i++) {
+        document.write(`${bParos[i]}, `);
+    }
+    document.write(`<hr>Az "A" tömb PRÍMSZÁM értéke(i): `);
+    for (let i = 0; i < aPrim.length; i++) {
+        document.write(`${aPrim[i]}, `);
+    }
+    document.write(`<hr>A "B" tömb PRÍMSZÁM értéke(i): `);
+    for (let i = 0; i < bPrim.length; i++) {
+        document.write(`${bPrim[i]}, `);
+    }
+    document.write(`<hr>Az "A" tömb MAXIMUM értéke: ${MaxErtek(tombA)}`);
+    document.write(`<hr>A "B" tömb MAXIMUM értéke: ${MaxErtek(tombB)}`);
+    document.write(`<hr>Az "A" tömb MINIMUM értéke: ${MinErtek(tombA)}`);
+    document.write(`<hr>A "B" tömb MINIMUM értéke: ${MinErtek(tombB)}`);
 }
 
 // Ramdom szám generálás

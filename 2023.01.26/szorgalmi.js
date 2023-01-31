@@ -135,17 +135,14 @@ function EgyenloE(tomb1, tomb2) {
 
 function AesBunio(tomb1, tomb2) {
     let unio = [];
-    let szerepel = 0;
     for (let i = 0; i < tomb1.length; i++) {
-        szerepel = SzerepelE(tomb1[i], unio);
-        if (szerepel == false) {
+        if (SzerepelE(tomb1[i], unio) == false) {
             unio.push(tomb1[i]);
         }
     }
 
     for (let j = 0; j < tomb2.length; j++) {
-        szerepel = SzerepelE(tomb2[j], unio);
-        if (szerepel == false) {
+        if (SzerepelE(tomb2[j], unio) == false) {
             unio.push(tomb2[j]);
         }
     }
@@ -160,8 +157,7 @@ function AesBmetszet(tomb1, tomb2,) {
     for (let i = 0; i < tomb1.length; i++) {
         for (let j = 0; j < tomb2.length; j++) {
             if (tomb1[i] == tomb2[j]) {
-                let szerepel = SzerepelE(tomb1[i], metszet);
-                if (szerepel == false) {
+                if (SzerepelE(tomb1[i], metszet) == false) {
                     metszet.push(tomb1[i]);
                 }
             }
@@ -173,14 +169,10 @@ function AesBmetszet(tomb1, tomb2,) {
 // A különbség B és B küléönbség A halmazok
 
 function AkulB(tombA, tombB) {
-    let szerepel = 0;
-    let egyenlo = 0;
     let halmazKul = [];
     for (let i = 0; i < tombA.length; i++) {
-        egyenlo = EgyenloE(tombA[i], tombB);
-        if (egyenlo == false) {
-            szerepel = SzerepelE(tombA[i], halmazKul);
-            if (szerepel == false) {
+        if (EgyenloE(tombA[i], tombB) == false) {
+            if (SzerepelE(tombA[i], halmazKul) == false) {
                 halmazKul.push(tombA[i]);
             }
         }
@@ -192,10 +184,8 @@ function AkulB(tombA, tombB) {
 
 function ParosSzamok(tomb) {
     let parosSzamok = [];
-    let szerepelE = 0;
     for (let i = 0; i < tomb.length; i++) {
-        szerepelE = SzerepelE(tomb[i], parosSzamok);
-        if (tomb[i] % 2 == 0 && szerepelE == false)
+        if (tomb[i] % 2 == 0 && SzerepelE(tomb[i], parosSzamok) == false)
             parosSzamok.push(tomb[i]);
     }
     return parosSzamok;
@@ -240,11 +230,9 @@ function PrimE(primSzam) {
 function PrimSzamKivalasztas(tomb) {
     let primSzam = [];
     let db = 0;
-    let szerepelE = 0;
     for (let i = 0; i < tomb.length; i++) {
         db = PrimE(tomb[i]);
-        szerepelE = SzerepelE(tomb[i], primSzam)
-        if (db == 2 && szerepelE == false) {
+        if (db == 2 && SzerepelE(tomb[i], primSzam) == false) {
             primSzam.push(tomb[i]);
         }
     }

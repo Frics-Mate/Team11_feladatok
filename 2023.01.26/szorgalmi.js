@@ -164,10 +164,8 @@ function AesBmetszet(tomb1, tomb2,) {
 function AesBmetszet2(tomb1, tomb2,) {
     let metszet2 = [];
     for (let i = 0; i < tomb1.length; i++) {
-        if (SzerepelE(tomb1[i], tomb2) == true) {
-            if (SzerepelE(tomb1[i], metszet2) == false) {
-                metszet2.push(tomb1[i]);
-            }
+        if (SzerepelE(tomb1[i], metszet2) == false && SzerepelE(tomb1[i], tomb2) == true) {
+            metszet2.push(tomb1[i]);
         }
     }
     return metszet2;
@@ -178,10 +176,8 @@ function AesBmetszet2(tomb1, tomb2,) {
 function AkulB(tombA, tombB) {
     let halmazKul = [];
     for (let i = 0; i < tombA.length; i++) {
-        if (SzerepelE(tombA[i], tombB) == false) {
-            if (SzerepelE(tombA[i], halmazKul) == false) {
-                halmazKul.push(tombA[i]);
-            }
+        if (SzerepelE(tombA[i], tombB) == false && SzerepelE(tombA[i], halmazKul) == false) {
+            halmazKul.push(tombA[i]);
         }
     }
     return halmazKul;

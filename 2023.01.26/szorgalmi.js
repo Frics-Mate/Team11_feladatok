@@ -124,18 +124,6 @@ function SzerepelE(tomb, tomb2) {
     return szerepelE;
 }
 
-// EgyenloE
-
-function EgyenloE(tomb1, tomb2) {
-    let egyenloE = false;
-    for (let i = 0; i < tomb2.length; i++) {
-        if (tomb1 == tomb2[i]) {
-            egyenloE = true;
-        }
-    }
-    return egyenloE;
-}
-
 // Unió
 
 function AesBunio(tomb1, tomb2) {
@@ -190,7 +178,7 @@ function AesBmetszet2(tomb1, tomb2,) {
 function AkulB(tombA, tombB) {
     let halmazKul = [];
     for (let i = 0; i < tombA.length; i++) {
-        if (EgyenloE(tombA[i], tombB) == false) {
+        if (SzerepelE(tombA[i], tombB) == false) {
             if (SzerepelE(tombA[i], halmazKul) == false) {
                 halmazKul.push(tombA[i]);
             }
@@ -248,10 +236,8 @@ function PrimE(primSzam) {
 
 function PrimSzamKivalasztas(tomb) {
     let primSzam = [];
-    let db = 0;
     for (let i = 0; i < tomb.length; i++) {
-        db = PrimE(tomb[i]);
-        if (db == 2 && SzerepelE(tomb[i], primSzam) == false) {
+        if (PrimE(tomb[i]) == 2 && SzerepelE(tomb[i], primSzam) == false) {
             primSzam.push(tomb[i]);
         }
     }

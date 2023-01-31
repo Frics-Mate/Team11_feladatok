@@ -3,6 +3,7 @@ tombA = Tomb(10, 30, 10);
 tombB = Tomb(15, 55, 10);
 unio = AesBunio(tombA, tombB);
 metszet = AesBmetszet(tombA, tombB);
+metszet2 = AesBmetszet2(tombA, tombB);
 aKulb = AkulB(tombA, tombB);
 bKula = AkulB(tombB, tombA);
 aParos = ParosSzamok(tombA);
@@ -33,6 +34,10 @@ function Kiiratas() {
     document.write(`<hr>Az "A" és "B" tömb METSZET eleme(i): `);
     for (let i = 0; i < metszet.length; i++) {
         document.write(`${metszet[i]}, `);
+    }
+    document.write(`<hr>Az "A" és "B" tömb METSZET2 eleme(i): `);
+    for (let i = 0; i < metszet2.length; i++) {
+        document.write(`${metszet2[i]}, `);
     }
     document.write(`<hr>Az "A" és "B" tömb KÜLÖNBSÉG eleme(i): `);
     for (let i = 0; i < aKulb.length; i++) {
@@ -164,6 +169,20 @@ function AesBmetszet(tomb1, tomb2,) {
         }
     }
     return metszet;
+}
+
+// Metszet2 
+
+function AesBmetszet2(tomb1, tomb2,) {
+    let metszet2 = [];
+    for (let i = 0; i < tomb1.length; i++) {
+        if (SzerepelE(tomb1[i], tomb2) == true) {
+            if (SzerepelE(tomb1[i], metszet2) == false) {
+                metszet2.push(tomb1[i]);
+            }
+        }
+    }
+    return metszet2;
 }
 
 // A különbség B és B küléönbség A halmazok

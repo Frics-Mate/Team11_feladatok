@@ -1,4 +1,4 @@
-//Javascript felmérő
+//Név: Frics Máté Csoport: #Team11
 
 //1. feladat 1 bementi paraméter (szöveg)
 document.write(`<hr> 1. feladat: <br><br> Teszt bementi paraméter "teszt": ${hosszEllenor("teszt")} <br> Teszt bementi paraméter "feladatteszt": ${hosszEllenor("feladatteszt")}`);

@@ -17,7 +17,8 @@ document.write(`<hr> 2. feladat: <br><br> Teszt bementi paraméter "040 655 330"
 				<br> Teszt bementi paraméter "111 111 111": ${tajSzamEllenor("111111111")} 
                 <br> Teszt bementi paraméter "111 111": ${tajSzamEllenor("111111")}
                 <br> Teszt bementi paraméter "037 687 210": ${tajSzamEllenor("037687210")}
-                <br> Teszt bementi paraméter "019 536 646": ${tajSzamEllenor("019536646")}`);
+                <br> Teszt bementi paraméter "019 536 646": ${tajSzamEllenor("019536646")}
+                <br> Teszt bementi paraméter "043 906 198": ${tajSzamEllenor("043906198")}`);
 
 function tajSzamEllenor(vizsgalandoTajszam) {
     if (vizsgalandoTajszam.length = 9) {
@@ -49,10 +50,8 @@ function tombTerjedelem(megvizsgaltTomb) {
         if (megvizsgaltTomb[i] < minimum) {
             minimum = megvizsgaltTomb[i];
         }
-    }
-    for (let j = 0; j < megvizsgaltTomb.length; j++) {
-        if (megvizsgaltTomb[j] > maximum) {
-            maximum = megvizsgaltTomb[j];
+        else if (megvizsgaltTomb[i] > maximum) {
+            maximum = megvizsgaltTomb[i];
         }
     }
     return maximum - minimum;
@@ -105,30 +104,52 @@ const Dolgozok = [{
 document.write(`<hr> 4. feladat: <br><br> Teszt bementi paraméter "Dolgozók objektum". Legidősebb dolgozó indexe: ${legidosebbDolgozo(Dolgozok)}`);
 
 function legidosebbDolgozo(vizsgaltObjektum) {
-    let maxKor = 0;
     let maxKorIndex = 0;
     for (let i = 0; i < vizsgaltObjektum.length; i++) {
-        if (vizsgaltObjektum[i].kor > maxKor) {
-            maxKor = vizsgaltObjektum[i].kor;
+        if (vizsgaltObjektum[i].kor > vizsgaltObjektum[maxKorIndex].kor) {
             maxKorIndex = i;
         }
     }
-
     return maxKorIndex;
 }
 
 //5. feladat 1 bementi paraméter (objektum)
-document.write(`<hr> 5. feladat: <br><br> Teszt bementi paraméter "Dolgozók objektum". Átlag fizetés alatti dolgozók emelt fizetése: ${fizetesEmeles(Dolgozok)}`);
-
-function fizetesEmeles(vizsgaltObjektum) {
+function atlagFiezetes(vizsgaltObjektum) {
     let osszFizetes = 0;
     for (let i = 0; i < vizsgaltObjektum.length; i++) {
         osszFizetes += vizsgaltObjektum[i].fizetes;
     }
-    for (let j = 0; j < vizsgaltObjektum.length; j++) {
-        if (vizsgaltObjektum[j].fizetes < (osszFizetes / vizsgaltObjektum.length)) {
-            vizsgaltObjektum[j].fizetes = (vizsgaltObjektum[j].fizetes * 1.1);
-        }
-    }
-
+    return Math.round(osszFizetes / vizsgaltObjektum.length);
 }
+let atlagFizu = atlagFiezetes(Dolgozok);
+
+function fizetesEmeles(Objektum) {
+    let ujFizetesek = [];
+    for (let i = 0; i < Objektum.length; i++) {
+        let UjElem = {};
+        UjElem.nev = Objektum[i].nev;
+        UjElem.kor = Objektum[i].kor;
+        UjElem.fizetes = Objektum[i].fizetes;
+        if (Objektum[i].fizetes < atlagFizu) {
+            UjElem.fizetes = Math.round(Number(Objektum[i].fizetes) * 1.1);
+        }
+        UjElem.beosztas = Objektum[i].beosztas;
+        ujFizetesek.push(UjElem);
+    }
+    return ujFizetesek;
+}
+
+function ObjektumKiirato(megjelenitettObjektum) {
+    document.write(`<table border=1>`);
+    document.write(`<tr><th>Név</th><th>Kor</th><th>Fizetés</th><th>Beosztás</th></tr>`);
+    for (let i = 0; i < megjelenitettObjektum.length; i++) {
+        document.write(`<tr><td>${megjelenitettObjektum[i].nev}</td><td>${megjelenitettObjektum[i].kor}</td><td>${megjelenitettObjektum[i].fizetes}</td><td>${megjelenitettObjektum[i].beosztas}</td></tr>`);
+    }
+    document.write(`</table>`);
+}
+
+document.write(`<hr> 5. feladat: <br><br> Teszt bementi paraméter "Dolgozók objektum". Átlag fizetés: ${atlagFizu}`);
+document.write(`<br><br>`);
+ObjektumKiirato(Dolgozok);
+document.write(`<br>`);
+ObjektumKiirato(fizetesEmeles(Dolgozok));

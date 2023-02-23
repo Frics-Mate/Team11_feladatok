@@ -1,6 +1,5 @@
 body {
   color: #293647;
-  margin: 0px 15px auto;
 }
 
 .bg-fej {
@@ -42,4 +41,9 @@ a {
 
 #valasz {
   visibility: hidden;
+}
+
+#szelesseg,
+#magassag {
+  margin: 0px auto 15px;
 }
